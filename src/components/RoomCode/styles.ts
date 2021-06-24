@@ -27,7 +27,7 @@ export const ContainerButton = styled.button`
     flex: 1;
     padding: 0 16px 0 12px;
     width: 250px;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
   }
 `;

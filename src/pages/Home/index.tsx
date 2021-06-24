@@ -40,7 +40,12 @@ export const Home: React.FC = () => {
       const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
       if (!roomRef.exists()) {
-        alert('Room does not exists.');
+        alert('Sala não existe.');
+        return;
+      }
+
+      if (roomRef.val().endedAt) {
+        alert('A sala já foi encerrada');
         return;
       }
 

@@ -30,7 +30,7 @@ export const Logo = styled.aside`
   }
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 32px;
     margin-top: 16px;
     color: #f8f8f8;
@@ -60,7 +60,7 @@ export const SignIn = styled.main`
     }
 
     h2 {
-      font-size: 24px;
+      font-size: 1.5rem;
       margin: 64px 0 24px;
       font-family: 'Poppins', sans-serif;
     }
@@ -83,7 +83,7 @@ export const SignIn = styled.main`
     }
 
     p {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: #737380;
       margin-top: 16px;
 

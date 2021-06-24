@@ -30,7 +30,7 @@ export const Logo = styled.aside`
   }
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 32px;
     margin-top: 16px;
     color: #f8f8f8;
@@ -102,7 +102,7 @@ export const SignIn = styled.main`
     }
 
     span {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: #a8a8b3;
 
       margin: 32px 0;

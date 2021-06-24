@@ -11,7 +11,7 @@ export default createGlobalStyle`
   body {
     background: #f8f8f8;
     color: #29292e;
-    -webkit-font-smoothing: antialised;
+    -webkit-font-smoothing: antialiased;
   }
 
   body, input, button, textarea {
@@ -24,5 +24,21 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  @media(max-width: 1080px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+  @media(max-width: 1366px) {
+    html {
+      font-size: 80%;
+    }
+  }
+  @media(max-width: 720) {
+    html {
+      font-size: 87.5%;
+    }
   }
 `;
