@@ -16,7 +16,6 @@ export const Question: React.FC<QuestionProps> = ({
   content,
   children,
 }: QuestionProps) => {
-  console.log(children);
   return (
     <Container>
       <p>{content}</p>
