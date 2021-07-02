@@ -7,17 +7,20 @@ type QuestionProps = {
     name: string;
     avatar: string;
   };
-  // eslint-disable-next-line react/require-default-props
   children?: ReactNode;
+  isHighlighted?: boolean;
+  isAnswered?: boolean;
 };
 
 export const Question: React.FC<QuestionProps> = ({
   author,
   content,
+  isHighlighted = false,
+  isAnswered = false,
   children,
 }: QuestionProps) => {
   return (
-    <Container>
+    <Container answered={isAnswered} highlighted={isHighlighted && !isAnswered}>
       <p>{content}</p>
 
       <footer>
@@ -25,7 +28,7 @@ export const Question: React.FC<QuestionProps> = ({
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </UserInfo>
-        <div>{children}</div>
+        <div className="icons">{children}</div>
       </footer>
     </Container>
   );

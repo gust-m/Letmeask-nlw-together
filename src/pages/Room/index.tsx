@@ -1,5 +1,5 @@
 import { useState, useCallback, FormEvent } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import {
   Container,
@@ -40,7 +40,7 @@ interface QuestionProps {
 
 export const Room: React.FC = () => {
   const params = useParams<RoomParams>();
-  const { user } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
 
   const [newQuestion, setNewQuestion] = useState('');
 
@@ -126,7 +126,9 @@ export const Room: React.FC = () => {
             ) : (
               <span>
                 Para enviar uma pergunta,
-                <button type="button">faça seu login.</button>
+                <button type="button" onClick={signInWithGoogle}>
+                  faça seu login.
+                </button>
               </span>
             )}
             <Button disabled={!user}>Enviar pergunta</Button>
@@ -138,6 +140,8 @@ export const Room: React.FC = () => {
               author={question.author}
               content={question.content}
               key={question.id}
+              isAnswered={question.isAnswered}
+              isHighlighted={question.isHighlighted}
             >
               <LikeButton
                 type="button"

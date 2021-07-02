@@ -77,7 +77,7 @@ export const QuestionList = styled.div`
   margin-top: 32px;
 `;
 
-export const DeleteButton = styled.button`
+export const IconButton = styled.button`
   border: 0;
   background: transparent;
 `;

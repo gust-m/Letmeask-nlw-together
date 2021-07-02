@@ -1,6 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+type ContainerProps = {
+  answered: boolean;
+  highlighted: boolean;
+};
+
+export const Container = styled.div<ContainerProps>`
   background: #fefefe;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -15,11 +20,37 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+
+    ${props =>
+      props.highlighted &&
+      css`
+        span {
+          color: #29292e;
+        }
+      `}
+
+    .icons {
+      display: flex;
+      gap: 16px;
+    }
   }
 
   & + div {
     margin-top: 8px;
   }
+
+  ${props =>
+    props.answered &&
+    css`
+      background: #dbdcdd;
+    `}
+
+  ${props =>
+    props.highlighted &&
+    css`
+      background: #f4f0ff;
+      border: 1px solid #835afd;
+    `}
 `;
 
 export const UserInfo = styled.div`
