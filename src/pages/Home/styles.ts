@@ -35,6 +35,21 @@ export const Logo = styled.aside`
     margin-top: 16px;
     color: #f8f8f8;
   }
+
+  @media (max-width: 900px) {
+    max-width: 50%;
+  }
+
+  @media (max-width: 820px) {
+    strong,
+    p {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 export const SignIn = styled.main`

@@ -21,6 +21,14 @@ export const HeaderContent = styled.div`
   img {
     max-height: 45px;
   }
+
+  @media (max-width: 440px) {
+    button {
+      span {
+        display: none;
+      }
+    }
+  }
 `;
 
 export const BoxTitle = styled.div`
@@ -43,11 +51,21 @@ export const BoxTitle = styled.div`
     font-weight: 500;
     font-size: 0.875rem;
   }
+
+  @media (max-width: 340px) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    span {
+      margin-left: auto;
+    }
+  }
 `;
 
 export const Content = styled.main`
-  max-width: 800px;
+  max-width: 840px;
   margin: 0 auto;
+  padding: 0 20px;
 
   > form {
     textarea {
@@ -85,6 +103,29 @@ export const FormFooter = styled.main`
       margin-left: 3px;
     }
   }
+
+  @media (max-width: 430px) {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin-right: auto;
+    }
+
+    > button {
+      width: 75%;
+    }
+
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      margin-bottom: 12px;
+    }
+  }
 `;
 
 export const UserInfo = styled.div`
@@ -107,6 +148,7 @@ export const UserInfo = styled.div`
 
 export const QuestionList = styled.div`
   margin-top: 32px;
+  margin-bottom: 18px;
 `;
 
 export const LikeButton = styled.button<LikeButtonProps>`

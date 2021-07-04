@@ -4,8 +4,8 @@ export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     outline: 0;
+    box-sizing: border-box;
   }
 
   body {
@@ -15,7 +15,7 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
-    font: 400 16px 'Roboto', sans-serif
+    font: 400 1rem 'Roboto', sans-serif
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -26,21 +26,38 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  @media(max-width: 1366px) {
+    html {
+      font-size: 97.5%;
+    }
+  }
   @media(max-width: 1080px) {
     html {
       font-size: 93.75%;
     }
   }
 
-  @media(max-width: 1366px) {
+  @media(max-width: 720px) {
     html {
-      font-size: 87.5%;
+      font-size: 90%;
     }
   }
 
-  @media(max-width: 720px) {
+  @media(max-width: 480px) {
     html {
-      font-size: 81.25%;
+      font-size: 86.25%;
+    }
+  }
+
+  @media(max-width: 360px) {
+    html {
+      font-size: 82.5%;
+    }
+  }
+
+  @media(max-width: 240px) {
+    html {
+      font-size: 78.75%;
     }
   }
 `;

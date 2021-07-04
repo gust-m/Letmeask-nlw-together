@@ -1,5 +1,5 @@
 import { useState, useCallback, FormEvent } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import {
   Container,
@@ -125,7 +125,7 @@ export const Room: React.FC = () => {
               </UserInfo>
             ) : (
               <span>
-                Para enviar uma pergunta,
+                <p>Para enviar uma pergunta,</p>
                 <button type="button" onClick={signInWithGoogle}>
                   faça seu login.
                 </button>

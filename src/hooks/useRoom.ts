@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { database } from '../services/firebase';
 import { useAuth } from './useAuth';
@@ -38,12 +38,36 @@ type FireBaseQuestions = Record<
 type UseRoomReturn = {
   questions: QuestionProps[];
   title: string;
+  handleHighlightQuestion: (questionId: string, isAnswered: boolean) => void;
 };
 
 export const useRoom = (roomId: string): UseRoomReturn => {
   const { user } = useAuth();
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
+
+  const handleHighlightQuestion = useCallback(
+    async (questionId: string, isHighlighted: boolean) => {
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+        isHighlighted: !isHighlighted,
+      });
+
+      const updatedQuestions = questions.map(question => {
+        if (question.id === questionId) {
+          const newQuestion = Object.assign(question, {
+            isHighlighted: !isHighlighted,
+          });
+
+          return newQuestion;
+        }
+
+        return question;
+      });
+
+      setQuestions(updatedQuestions);
+    },
+    [questions, roomId],
+  );
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
@@ -76,7 +100,7 @@ export const useRoom = (roomId: string): UseRoomReturn => {
     return () => {
       roomRef.off('value');
     };
-  }, [roomId, user?.id]);
+  }, [questions, roomId, user?.id]);
 
-  return { questions, title };
+  return { questions, title, handleHighlightQuestion };
 };

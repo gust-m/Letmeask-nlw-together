@@ -1,9 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface IconButtonProps {
+  highlighted?: boolean;
+}
 
 export const Container = styled.div`
   header {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;
+  }
+
+  padding: 0 20px;
+
+  @media (max-width: 440px) {
+    header {
+      padding: 24px 12px;
+    }
   }
 `;
 
@@ -18,12 +30,36 @@ export const HeaderContent = styled.div`
     max-height: 45px;
   }
 
-  > div {
+  div {
     display: flex;
     gap: 16px;
 
     button {
       height: 40px;
+    }
+  }
+
+  @media (max-width: 660px) {
+    div {
+      gap: 12px;
+
+      button {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 380px) {
+    div {
+      display: flex;
+      gap: 16px;
+
+      button:last-child {
+        height: 40px;
+        padding: 16px;
+      }
     }
   }
 `;
@@ -47,6 +83,15 @@ export const BoxTitle = styled.div`
     color: #fff;
     font-weight: 500;
     font-size: 0.875rem;
+  }
+
+  @media (max-width: 440px) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    span {
+      margin-left: auto;
+    }
   }
 `;
 
@@ -75,9 +120,34 @@ export const UserInfo = styled.div`
 
 export const QuestionList = styled.div`
   margin-top: 32px;
+  margin-bottom: 18px;
+
+  @media (max-width: 480px) {
+    > div {
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        width: 100%;
+
+        .icons {
+          margin-left: auto;
+        }
+      }
+    }
+  }
 `;
 
-export const IconButton = styled.button`
+export const IconButton = styled.button<IconButtonProps>`
   border: 0;
   background: transparent;
+
+  ${props =>
+    props.highlighted &&
+    css`
+      svg path {
+        stroke: #000;
+      }
+    `}
 `;

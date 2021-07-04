@@ -13,6 +13,7 @@ export const Container = styled.div<ContainerProps>`
 
   p {
     color: #29292e;
+    word-wrap: break-word;
   }
 
   footer {
